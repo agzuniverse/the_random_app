@@ -20,6 +20,7 @@ var app = {
 		document.addEventListener("backbutton",back_handler,false);
 		rand=random_gen(0,titles.length-1);
 		$('.main_message').html(titles[rand]);
+		$('.loading').hide();
 		setTimeout(function(){
 			$('#splash').hide();
 			$('.persist_btn').css("color","#BBB");
@@ -284,7 +285,7 @@ function reset_button(url){
 //Show menu via swipe
 swiper.on('swiperight',function(e){
 	if(!($('#menu').hasClass('visible'))){
-		$('#menu').animate({"left":"0%"},250).addClass('visible');
+		$('#menu').animate({"left":"0%"},150).addClass('visible');
 		div_on_focus=1;
 	}
 });
@@ -293,14 +294,14 @@ swiper.on('swiperight',function(e){
 swiper.on('swipeleft',function(e){
 	if($('#menu').hasClass('visible')){
 		div_on_focus=0;
-		$('#menu').animate({"left":"-75vw"},250).removeClass('visible');
+		$('#menu').animate({"left":"-75vw"},150).removeClass('visible');
 	}
 });
 
 //Show menu via tap
 $('#menu_button').click(function(){
 	if(!($('#menu').hasClass('visible'))){
-		$('#menu').animate({"left":"0%"},250).addClass('visible');
+		$('#menu').animate({"left":"0%"},150).addClass('visible');
 		div_on_focus=1;
 	}
 });
@@ -309,21 +310,28 @@ $('#menu_button').click(function(){
 $('#main').click(function(){
 	if($('#menu').hasClass('visible')){
 		div_on_focus=0;
-		$('#menu').animate({"left":"-75vw"},250).removeClass('visible');
+		$('#menu').animate({"left":"-75vw"},150).removeClass('visible');
 	}
 });
 
 //About app
 function about_app(){
 	div_on_focus=2;
-	$('#menu').animate({"left":"-75vw"},250).removeClass('visible');
+	$('#menu').animate({"left":"-75vw"},150).removeClass('visible');
 	$('#about_app').fadeIn(500);
+}
+
+//How to contribute
+function contribute(){
+	div_on_focus=3;
+	$('#menu').animate({"left":"-75vw"},150).removeClass('visible');
+	$('#contribute').fadeIn(500);
 }
 
 //View saved content
 function saved_content(){
 	div_on_focus=4;
-	$('#menu').animate({"left":"-75vw"},250).removeClass('visible');
+	$('#menu').animate({"left":"-75vw"},150).removeClass('visible');
 	$('#linklist').fadeIn(500);
 }
 
@@ -361,13 +369,6 @@ function del_link(k){
 			}
 		}
 	}
-}
-
-//How to contribute
-function contribute(){
-	div_on_focus=3;
-	$('#menu').animate({"left":"-75vw"},250).removeClass('visible');
-	$('#contribute').fadeIn(500);
 }
 
 //Handles back key
