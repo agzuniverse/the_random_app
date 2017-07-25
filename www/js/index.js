@@ -276,6 +276,7 @@ function leave_button(){
 
 function reset_button(url){
 	$('.loading').hide();
+	$('.loader_text').hide();
 	curr_url=url;
 	$('.savelink').show();
 	isloading=0;
