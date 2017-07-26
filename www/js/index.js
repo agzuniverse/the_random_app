@@ -144,6 +144,7 @@ function retr(){
 		$('.savelink').hide();
 		$('.loader_text').text(msgs[rand]);
 		$('.loading').show();
+		$('.loader_text').show();
 		
 		do{
 			rand=random_gen(1,cat_end);
